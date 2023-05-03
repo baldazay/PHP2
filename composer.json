@@ -1,0 +1,21 @@
+{
+    "name": "geekbrains/alisher",
+    "description": "Blog backend",
+    "autoload": {
+        "psr-4": {
+            "Geekbrains\\Alisher\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alisher Yuldashev",
+            "email": "baldazay@gmail.com"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.21"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    }
+}
