@@ -7,26 +7,29 @@ include __DIR__ . '/vendor/autoload.php';
 
 $faker = Faker\Factory::create('ru_RU');
 
-/*$name = new Name('Alisher', 'Yuldashev');
-$person = new Person(
-    $name,
-    new DateTimeImmutable());*/
-
-$argv = [
-    'user' => $user = new User(1, $faker->firstName, $faker->lastName),
-    'post' => $post = new Post(1, $user, 'Laravel', $faker->text),
-    'comment' => $comment = new Comment(1, $user, $post, $faker->text)
-];
+$user = new User(1, $faker->firstName, $faker->lastName);
 
 switch ($argv) {
-    case $argv[1]:
-        echo $argv[1],
+    case $argv[1] == 'user':
+        echo $user;
+        break;
+    case $argv[1] == 'post':
+        $post = new Post(1, $user, 'Laravel', $faker->text);
+        echo $post;
+        break;
+    case $argv[1] == 'comment':
+        $post = new Post(1, $user, 'Laravel', $faker->text);
+        $comment = new Comment(
+            1,
+            $user,
+            $post,
+            $faker->text);
+        echo $comment;
+        break;
 }
-
-$user = new User(1, $faker->firstName, $faker->lastName);
 
 $post = new Post(1, $user, 'Laravel', $faker->text);
 //echo $post;
 
 $comment = new Comment(1, $user, $post, $faker->text);
-echo $comment;
+//echo $comment;
