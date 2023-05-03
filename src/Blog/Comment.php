@@ -5,27 +5,27 @@ namespace Geekbrains\Alisher\Blog;
 class Comment
 {
     private int $id;
-    private User $user_id;
-    private Post $post_id;
+    private User $user;
+    private Post $post;
     private string $text;
 
     /**
      * @param int $id
-     * @param User $user_id
-     * @param Post $post_id
+     * @param User $user
+     * @param Post $post
      * @param string $text
      */
-    public function __construct(int $id, User $user_id, Post $post_id, string $text)
+    public function __construct(int $id, User $user, Post $post, string $text)
     {
         $this->id = $id;
-        $this->user_id = $user_id;
-        $this->post_id = $post_id;
+        $this->user = $user;
+        $this->post = $post;
         $this->text = $text;
     }
 
     public function __toString()
     {
-        return 'Новый комментарий к статье #' . $this->post_id . ' от user [' . $this->user_id . '] : ' . $this->text;
+        return 'Новый комментарий к статье ' . $this->post->getTitle() . ' от ' . $this->user . ' : ' .  $this->text;
     }
 
 }
